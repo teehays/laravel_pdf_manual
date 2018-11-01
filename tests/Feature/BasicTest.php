@@ -25,5 +25,21 @@ class BasicTest extends TestCase
         // Null, now the box is empty
         $this->assertNull($box->takeOne());
     }
+    public function testStartsWithALetter()
+    {
+        $box = new Box(['toy', 'torch', 'ball', 'cat', 'tissue']);
+
+        $results = $box->startsWith('t');
+
+
+        $this->assertContains('torch', $results);
+        $this->assertContains('toy', $results);
+        $this->assertContains('tissue', $results);
+        $this->assertCount(3, $results);
+
+        // Empty array if passed even
+        $this->assertEmpty($box->startsWith('s'));
+    }
+
 
 }

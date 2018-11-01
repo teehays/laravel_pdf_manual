@@ -11,6 +11,10 @@
 |
 */
 
+Route::resource('pdfproductuploads', 'PdfProductUploadsController');
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
